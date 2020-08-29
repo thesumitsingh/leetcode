@@ -1,0 +1,51 @@
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+Note: For the purpose of this problem, we define empty string as valid palindrome.
+
+Example 1:
+
+Input: "A man, a plan, a canal: Panama"
+Output: true
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        // string s1,s2;
+        // for (int i=0;i<s.size();i++){
+        //     if (s[i]>96 && s[i]<123)
+        //         s1.push_back(s[i]);
+        //     if (s[i]>64 && s[i]<91)
+        //         s1.push_back(s[i]+32);
+        // }
+        // for (int i=s.size();i>=0;i--){
+        //     if (s[i]>96 && s[i]<123)
+        //         s2.push_back(s[i]);
+        //     if (s[i]>64 && s[i]<91)
+        //         s2.push_back(s[i]+32);
+        // }
+        // int c=0;
+        // for (int i=0;i<s.size();i++){
+        //     if (s1[i]==s2[i])
+        //         c++;
+        // }
+        // // cout<<s1<<endl<<s2;
+        // if (c==s1.size() || c==0)
+        //    return true;
+        // else
+        //     return false;
+        int i=0,j=s.size();
+        while (i<j){
+            while (i<j && !isalnum(s[i]))
+                i++;
+            while (i<j && !isalnum(s[j]))
+                j--;
+            if (tolower(s[i])!=tolower(s[j])){
+                cout<<endl<<s[i]<<endl<<s[j];
+                return false;}
+            i++;
+            j--;
+            
+        }
+        return true;
+    }
+};
